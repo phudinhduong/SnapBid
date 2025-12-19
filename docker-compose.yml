@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: demo-postgres
+    environment:
+      POSTGRES_DB: demo
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      TZ: UTC
+    command: ["postgres", "-c", "TimeZone=UTC"]
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

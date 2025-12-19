@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: demo
+    password: demo
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-init-sql: "SET TIME ZONE 'UTC'"
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+  jackson:
+    serialization:
+      indent_output: true
+
+server:
+  port: 8080
+
+
+
