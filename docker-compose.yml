@@ -1,17 +1,17 @@
 services:
-  db:
-    image: postgres:16
-    container_name: demo-postgres
+  mysql:
+    image: mysql:8.0
+    container_name: demo-mysql
     environment:
-      POSTGRES_DB: demo
-      POSTGRES_USER: demo
-      POSTGRES_PASSWORD: demo
-      TZ: UTC
-    command: ["postgres", "-c", "TimeZone=UTC"]
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: demo
+      MYSQL_USER: demo
+      MYSQL_PASSWORD: demopass
     ports:
-      - "5432:5432"
+      - "3308:3306"
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
 
 volumes:
-  pgdata:
+  mysql_data:

@@ -1,25 +1,18 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/demo
-    username: demo
-    password: demo
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      connection-init-sql: "SET TIME ZONE 'UTC'"
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        format_sql: true
-        jdbc:
-          time_zone: UTC
-  jackson:
-    serialization:
-      indent_output: true
-
 server:
   port: 8080
 
-
-
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/demo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: demo
+    password: demopass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    datatype:
+      datetime:
+        WRITE_DATES_AS_TIMESTAMPS: false

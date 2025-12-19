@@ -2,14 +2,22 @@ package spring.springbackend.model;
 
 import jakarta.persistence.*;
 
+import lombok.*;
+
+import java.math.BigDecimal;
+
 @Entity
+@Table(name = "products")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Product {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private Integer price;
+    @Column(nullable = false)
+    private String name;
 
-    // getters/setters
+    @Column(nullable = false, precision = 12, scale = 2)
+    private BigDecimal price;
 }
-
